@@ -7,6 +7,7 @@ class Vehicle implements Driveable {
   vin: string;
   make: string;
   model: string;
+  color: string;
   year: number;
   weight: number;
   topSpeed: number;
@@ -18,6 +19,7 @@ class Vehicle implements Driveable {
     vin: string,
     make: string,
     model: string,
+    color: string,
     year: number,
     weight: number,
     topSpeed: number
