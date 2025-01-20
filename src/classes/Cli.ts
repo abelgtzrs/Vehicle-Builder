@@ -122,8 +122,8 @@ class Cli {
           answers.model,
           parseInt(answers.year),
           parseInt(answers.weight),
-          parseInt(answers.topSpeed),
-          []
+          parseInt(answers.topSpeed), 
+          Array(4).fill(new Wheel())
         );
         // push the car to the vehicles array
         this.vehicles.push(car);
@@ -187,11 +187,10 @@ class Cli {
           Array(4).fill(new Wheel()),
           parseInt(answers.towingCapacity)
         );
-        // TODO: push the truck to the vehicles array
+  
+        // Add the new truck to the vehicles array
         this.vehicles.push(truck);
-        // TODO: set the selectedVehicleVin to the vin of the truck
-        this.selectedVehicleVin = truck.vin;
-        // TODO: perform actions on the truck
+        console.log('Truck created successfully!');
         this.performActions();
       });
   }
@@ -282,37 +281,42 @@ class Cli {
       });
   }
 
-  // method to find a vehicle to tow
-  // TODO: add a parameter to accept a truck object
-  findVehicleToTow(): void {
-    inquirer
-      .prompt([
-        {
-          type: 'list',
-          name: 'vehicleToTow',
-          message: 'Select a vehicle to tow',
-          choices: this.vehicles.map((vehicle) => {
-            return {
-              name: `${vehicle.vin} -- ${vehicle.make} ${vehicle.model}`,
-              value: vehicle,
-            };
-          }),
-        },
-      ])
-      .then((answers) => {
-        // TODO: check if the selected vehicle is the truck
-        const vehicleToTow = answers.vehicleToTow;
+// method to find a vehicle to tow
+// TODO: add a parameter to accept a truck object
+findVehicleToTow(truck: Truck): void {
+  inquirer
+    .prompt([
+      {
+        type: 'list',
+        name: 'vehicleToTow',
+        message: 'Select a vehicle to tow',
+        choices: this.vehicles.map((vehicle) => {
+          return {
+            name: `${vehicle.vin} -- ${vehicle.make} ${vehicle.model}`,
+            value: vehicle,
+          };
+        }),
+      },
+    ])
+    .then((answers) => {
+      // TODO: check if the selected vehicle is the truck
+      const vehicleToTow = answers.vehicleToTow;
 
-        if (vehicleToTow === Truck) {
+      if (vehicleToTow === truck) {
         // TODO: if it is, log that the truck cannot tow itself then perform actions on the truck to allow the user to select another action
-        console.log("A truck cannot tow itself.")
-      } else if (vehicleToTow.weight <= Truck.towingCapacity) {
+        console.log("A truck cannot tow itself.");
+      } else if (vehicleToTow.weight <= truck.towingCapacity) {
         // Tow the vehicle if within towing capacity
         console.log(`Towing ${vehicleToTow.make} ${vehicleToTow.model}.`);
-        Truck.tow(vehicleToTow);
-        // TODO: if it is not, tow the selected vehicle then perform actions on the truck to allow the user to select another action
-      });
-  }
+        truck.tow(vehicleToTow);
+      } else {
+        // TODO: if it is not, log that the vehicle is too heavy to be towed
+        console.log(`This ${vehicleToTow.make} ${vehicleToTow.model} is too heavy to be towed. Max Capacity: ${truck.towingCapacity} lbs.`);
+      }
+      // Perform actions on the truck to allow the user to select another action
+      this.performActions();
+    });
+}
 
   // method to perform actions on a vehicle
   performActions(): void {

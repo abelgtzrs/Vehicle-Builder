@@ -24,11 +24,9 @@ class Truck extends Vehicle implements AbleToTow{
     weight: number,
     topSpeed: number,
     wheels: Wheel[],
-    towingCapacity: number
-  ) {
-
+    towingCapacity: number){
     // TODO: The constructor should call the constructor of the parent class, Vehicle
-    super(vin, color, make, model, year, weight, topSpeed);
+    super(vin, color, make, model, year, weight, topSpeed, wheels);
 
     // TODO: The constructor should initialize the properties of the Truck class
     this.towingCapacity = towingCapacity;

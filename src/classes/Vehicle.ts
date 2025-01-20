@@ -1,5 +1,6 @@
 // import Driveable interface
 import Driveable from '../interfaces/Driveable.js';
+import Wheel from './Wheel.js';
 
 // Vehicle class that implements Driveable interface
 class Vehicle implements Driveable {
@@ -10,28 +11,33 @@ class Vehicle implements Driveable {
   color: string;
   year: number;
   weight: number;
+  wheels: Wheel[];
   topSpeed: number;
   started: boolean;
   currentSpeed: number;
+  
 
   // Constructor for the Vehicle class
   constructor(
     vin: string,
+    color: string,
     make: string,
     model: string,
-    color: string,
     year: number,
     weight: number,
-    topSpeed: number
+    topSpeed: number,
+    wheels: Wheel[],
   ) {
     this.vin = vin;
     this.make = make;
     this.model = model;
+    this.color = color;
     this.year = year;
     this.weight = weight;
     this.topSpeed = topSpeed;
     this.started = false;
     this.currentSpeed = 0;
+    this.wheels = wheels;
   }
 
   // Method to print vehicle details
