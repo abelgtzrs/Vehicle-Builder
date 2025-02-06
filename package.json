@@ -12,6 +12,8 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
+    "boxen": "^8.0.1",
+    "chalk": "^5.4.1",
     "inquirer": "^9.3.7",
     "typescript": "^5.4.5"
   },
