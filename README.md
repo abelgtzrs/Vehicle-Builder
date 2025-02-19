@@ -77,8 +77,6 @@ npm test
 - 📜 **Menu-driven interaction with Inquirer.js**
 - 🔍 **Select existing vehicles to perform actions**
 
-## Video Walkthrough
-https://drive.google.com/file/d/1Mz4NxJy4nspw7X8sI0AtD2EyUETn0V7G
 
 ## Contributors
 - Abel Gutierrez
