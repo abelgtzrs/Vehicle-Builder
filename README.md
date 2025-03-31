@@ -1,6 +1,9 @@
 ![License](https://img.shields.io/badge/license-MIT-green)
 # Vehicle Builder CLI
 
+## Description
+Vehicle Builder CLI is a **TypeScript-based command-line application** that allows users to create and interact with different vehicle types, including **Cars, Trucks, and Motorbikes**. The application provides **real-time vehicle actions**, such as starting, accelerating, decelerating, towing (for trucks), and performing wheelies (for motorbikes).
+
 ## Table of Contents
 - [Description](#description)
 - [Installation](#installation)
@@ -11,9 +14,6 @@
 - [Features](#features)
 - [Contributors](#contributors)
 - [Questions](#questions)
-
-## Description
-Vehicle Builder CLI is a **TypeScript-based command-line application** that allows users to create and interact with different vehicle types, including **Cars, Trucks, and Motorbikes**. The application provides **real-time vehicle actions**, such as starting, accelerating, decelerating, towing (for trucks), and performing wheelies (for motorbikes).
 
 ## Installation
 1. Clone the repository:
